@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom QR Code Generator</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Custom QR Code Generator</h1>
+        <p class="description">
+          Create personalized QR codes with your initials in the center and
+          custom colors.
+        </p>
+      </header>
+
+      <div class="content">
+        <section class="form-section">
+          <h2>QR Code Settings</h2>
+          <form id="qr-form">
+            <div class="form-group">
+              <label for="data">QR Code Content</label>
+              <input
+                type="url"
+                id="data"
+                name="data"
+                placeholder="https://example.com"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label for="initials">Center Text</label>
+              <input
+                type="text"
+                id="initials"
+                name="initials"
+                placeholder="AC"
+                maxlength="3"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label for="color_black">QR Code Color</label>
+              <div class="color-container">
+                <input
+                  type="color"
+                  id="color_black"
+                  name="color_black"
+                  value="#0066CC" />
+                <span class="color-label" id="color-black-display"
+                  >#0066CC</span
+                >
+                <div
+                  class="color-preview"
+                  id="color-black-preview"
+                  style="background-color: #0066cc"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="color_white">Background Color</label>
+              <div class="color-container">
+                <input
+                  type="color"
+                  id="color_white"
+                  name="color_white"
+                  value="#FFFFFF" />
+                <span class="color-label" id="color-white-display"
+                  >#FFFFFF</span
+                >
+                <div
+                  class="color-preview"
+                  id="color-white-preview"
+                  style="background-color: #ffffff"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="box_size">Size (pixels per module)</label>
+              <input
+                type="number"
+                id="box_size"
+                name="box_size"
+                min="5"
+                max="20"
+                value="10" />
+            </div>
+
+            <div class="form-group">
+              <label for="border">Border Size</label>
+              <input
+                type="number"
+                id="border"
+                name="border"
+                min="1"
+                max="10"
+                value="4" />
+            </div>
+
+            <button type="submit" id="generate-btn">Generate QR Code</button>
+          </form>
+        </section>
+
+        <section class="preview-section">
+          <h2>Preview</h2>
+          <div class="loading" id="loading"></div>
+          <div class="preview-image">
+            <img
+              id="qr-preview"
+              src=""
+              alt="QR Code Preview"
+              style="display: none" />
+          </div>
+          <a id="download-link" download="custom_qr_code.png">
+            <button id="download-btn" class="download-btn">
+              Download QR Code
+            </button>
+          </a>
+        </section>
+      </div>
+
+      <footer>
+        <p>Created by AC QR Code Generator &copy; 2023</p>
+      </footer>
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>

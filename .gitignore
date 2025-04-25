@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+.vercel
+qr_generator_v1.py
+qr_generator_v2.py
