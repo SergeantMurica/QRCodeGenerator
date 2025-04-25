@@ -1,10 +1,16 @@
+import os
 import qrcode
 from PIL import Image, ImageDraw, ImageFont
 import io
 import base64
 from flask import Flask, render_template, request, jsonify
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.getenv('FLASK_SECRET_KEY')
 
 def generate_custom_qr(data, initials="AC", 
                       color_black="#000000", color_white="#FFFFFF", 
